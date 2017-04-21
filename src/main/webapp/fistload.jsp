@@ -10,6 +10,7 @@
 <%@ page import="redis.clients.jedis.Jedis" %>
 <% Jedis jedis = new Jedis("localhost");
 jedis.set("maxuserid","0");
+jedis.save();
 	%>
 </body>
 </html>

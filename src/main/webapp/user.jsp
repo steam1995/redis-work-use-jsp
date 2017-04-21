@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/Test/createuser.jsp">
+<form action="${pageContext.request.contextPath}/createuser.jsp">
 			<input type="submit" value=create>
 	</form>
 <hr>
@@ -35,7 +35,7 @@
            		<td><%=jedis.hmget(key,"birthday")%></td>
            		<td><%=jedis.hmget(key,"description")%></td>
            		<td><%=jedis.hmget(key,"avgscore")%></td>
-           		<td><a href="user.jsp?delete=<%=key1 %>">delete</a><%
+           		<td><a href="${pageContext.request.contextPath}/user.jsp?delete=<%=key1 %>">delete</a><%
            		String deletestudent=request.getParameter("delete");
            		System.out.println(deletestudent);
            		if(deletestudent!=null){
@@ -44,16 +44,16 @@
 					<script type='javaScript'>;window.location.reload;</script>
 					<%}%>
 				</td>
-           		<td><a href="alteruser.jsp?number=<%=key1 %>">alter</a></td>
+           		<td><a href="${pageContext.request.contextPath}/alteruser.jsp?number=<%=key1 %>">alter</a></td>
            	</tr>
         <%}%>
      </table>
      <table>
 	<tr><%
 	for (int link=1;link<=pages/10+1;link++){
-	%><form action="/Test/user.jsp" method="post">
+	%><form action="${pageContext.request.contextPath}/user.jsp" method="post">
 		<% String s = String.valueOf(link); %>
-		<td><a href="user.jsp?page=<%=s %>">page<%=s %></a></td> 
+		<td><a href="${pageContext.request.contextPath}/user.jsp?page=<%=s %>">page<%=s %></a></td> 
 		</form>	
 	<%} %>
 	</tr>

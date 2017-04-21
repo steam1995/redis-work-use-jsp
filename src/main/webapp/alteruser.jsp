@@ -17,7 +17,7 @@
 		String useridstr=request.getParameter("number");
 	%>
 	
-	<form action="/Test/alteruser.jsp" method="post">
+	<form action="${pageContext.request.contextPath}/alteruser.jsp" method="post">
 		<input type="hidden" name="useridstr" value="<%=useridstr%>">
 		username:<input type="text" name="username"><br>
 		userbirthday:<input type="text" name="userbirthday"><br>
@@ -26,7 +26,7 @@
 		<input type="submit" value=alter>
 	</form>
 	<hr>
-	<form action="/Test/user.jsp">
+	<form action="${pageContext.request.contextPath}/user.jsp">
 			<input type="submit" value=user>
 	</form>
 		<%

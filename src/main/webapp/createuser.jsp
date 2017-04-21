@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@page isELIgnored='false' %>
 	<%@ page import="java.util.Date" %>
 	<%@ page import="java.text.SimpleDateFormat" %>
 	<%@ page import="java.util.HashMap" %>
@@ -16,7 +17,7 @@
 	<% Jedis jedis = new Jedis("localhost");
 	%>
 	
-	<form action="/Test/createuser.jsp" method="post">
+	<form action="${pageContext.request.contextPath}/createuser.jsp" method="post">
 		username:<input type="text" name="username"><br>
 		userbirthday:<input type="text" name="userbirthday"><br>
 		usedescription:<input type="text" name="userdescription"><br>
