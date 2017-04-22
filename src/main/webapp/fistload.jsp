@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,10 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ page import="redis.clients.jedis.Jedis" %>
-<% Jedis jedis = new Jedis("localhost");
-jedis.set("maxuserid","0");
-jedis.save();
+	<%@ page import="redis.clients.jedis.Jedis"%>
+	<%
+		//將id初始化
+		Jedis jedis = new Jedis("localhost");
+		jedis.set("maxuserid", "0");
+		jedis.save();
 	%>
 </body>
 </html>
