@@ -16,6 +16,7 @@
 	<%@ page import="java.util.Date"%>
 	<%
 		Jedis jedis = new Jedis("localhost");
+		jedis.auth("redis");
 		String useridstr = request.getParameter("number");
 	%>
 	<!-- 将修改数据传到当前页面并，存根据传进的id去覆盖掉redis中的信息 -->
@@ -86,6 +87,7 @@
 	</script>
 	<%
 		}
+			if(name!=null){
 			int avgscore = 0;
 			avgscore = Integer.parseInt(avgscorestr);
 			//转化日期类型
@@ -101,6 +103,7 @@
 			map.put("avgscore", avgscorestr);
 			jedis.zadd("student_table", avgscore, idstr);
 			jedis.hmset("student" + idstr, map);
+		}
 		}
 	%>
 

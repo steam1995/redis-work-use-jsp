@@ -16,6 +16,7 @@
 	<%@ page import="java.util.Date"%>
 	<%
 		Jedis jedis = new Jedis("localhost");
+		jedis.auth("redis");
 	%>
 	
 	<!-- 將用戶信息传入本页并在日redis中创建新student -->
@@ -75,6 +76,7 @@
 	</script>
 	<%
 		}
+		if(name!=null){
 		int avgscore = 0;
 		int idint = Integer.parseInt(jedis.get("maxuserid"));
 		avgscore = Integer.parseInt(avgscorestr);
@@ -92,6 +94,7 @@
 		map.put("avgscore", avgscorestr);
 		jedis.zadd("student_table", avgscore, id);
 		jedis.hmset("student" + id, map);
+		}
 	%>
 
 

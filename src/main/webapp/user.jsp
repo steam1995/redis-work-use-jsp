@@ -18,6 +18,7 @@
 
 	<%
 		Jedis jedis = new Jedis("localhost");
+		jedis.auth("redis");
 		//展示表实现，根据传入的页数实现分页获取，默认页数为1
 		int number = 1;
 		long topnumber = 0;
